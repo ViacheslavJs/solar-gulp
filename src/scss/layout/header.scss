@@ -1,0 +1,38 @@
+
+.header {
+  position: fixed;     
+  top: 0;
+  left: 0; 
+  right: 0;   
+  height: $header_height; 
+  z-index: 50;
+  background: $header_bg; 
+  box-shadow: 0px 2px 5px 0px rgba(79,79,79,0.3);
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(79,79,79,0.3);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(79,79,79,0.3);
+  @media screen and (max-width: $mobile-big_end-point) {
+    height: $header_mobile-height;
+    box-shadow: none;
+  }
+  
+  animation: scroll-anim_1 0.5s forwards; 
+  
+  @media screen and (min-width: $tablet-small_starting-point) {
+    animation: scroll-anim_2 0.5s forwards;
+  }
+  
+  &--scroll {
+    display: none; 
+  }
+  
+}
+
+.header__line {
+  display: none;
+  height: 10px;
+  margin-top: 0px;
+  border: none;
+  background: $header-line_bg;
+}
+
+

@@ -1,0 +1,238 @@
+ 	      
+.lightbox-b__modal {
+  display: none;	                        
+  position: fixed;  
+  top: 0;   
+  right: 0;		  
+  left: 0; 
+  font-size: 16px;
+  
+  bottom: 0; /* TODO - variant-slider-1 */
+  padding: 1.5em 0;
+  
+  z-index: 100;       	  
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  box-shadow: 0 4px 8px 5px rgba(0, 0, 0, 0.4);
+  background: #444444;
+  background: #181818; /* TODO - variant-slider-1 */
+  overflow: hidden;
+  cursor: pointer;                                                                                   	  
+}
+
+.lightbox-b__images-box { 
+  /* TODO - variant-slider-1 */                                
+  height: 100%;
+   
+  /* optional */
+  @media screen and (max-width: 799px) and (orientation: landscape) {
+    max-width: calc(100% - 100px); 
+    margin: auto;  
+  }
+  
+  /* TODO - variant-slider-1 */
+  
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
+  
+  &.to-left { 
+  opacity: 0;
+  animation: swipe-left 0.4s forwards; } 
+  @keyframes swipe-left {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+    /*0% {transform: translateY(150%);}
+    100% {transform: translateX(0);}*/
+    0% {transform: translateX(150%);}
+    100% {transform: translateY(0);}
+  } 
+  
+  &.to-right { 
+  opacity: 0;
+  animation: swipe-right 0.4s forwards; } 
+  @keyframes swipe-right {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+    /*0% {transform: translateY(-150%);}
+    100% {transform: translateX(0);}*/
+    0% {transform: translateX(-150%);}
+    100% {transform: translateY(0);}   
+  }
+   
+}
+
+.lightbox-b__images {                  
+  display: block; 
+  width: 100%; /* 95% */ 
+  max-height: 100%;
+  
+  /* TODO - variant-slider-1 */ 
+  height: 100%; 
+  object-fit: contain;
+  object-position: center; 
+  /* TODO - variant-slider-1 */ 
+  
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}	
+
+/* indicators */
+.lightbox-b__dot {
+  height: 8px;
+  width: 8px;
+  margin: 0 2px;
+  margin: 0.2em 2px 0em 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.lightbox-b__dot-box {
+  text-align: center;
+}
+
+.controls {
+  display: none;
+  opacity: 0;
+  animation: anim 0.3s forwards; 
+  /*animation: anim 0.3s linear forwards;*/
+}
+
+.show-hide-controls {
+  display: block;
+}
+
+.lightbox-b__prev, .lightbox-b__next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 10px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  background: rgba(0, 0, 0, 0.3); 
+  user-select: none;
+  
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.lightbox-b__next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.lightbox-b__prev:hover, .lightbox-b__next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.lightbox-b__close {
+  color: #f2f2f2;
+  font-size: 2em;
+  padding: 0;
+  position: absolute;
+  top: 0.5em;
+  right: 0.3em;
+}
+
+.dot-active, .lightbox-b__dot:hover {
+  background-color: green;
+}
+
+@media only screen and (max-width: 300px) {
+  
+  .lightbox-b__prev, .lightbox-b__next, .text {
+    font-size: 11px
+  }
+  
+}
+
+/* Animation for modal */
+/*
+.lightbox-b__modal {
+  animation-name: appearance;  
+  animation-duration: 0.6s; 
+}
+
+@keyframes appearance {                               
+  from {transform:scale(0)}
+  to {transform:scale(1)}    
+}
+*/
+ 
+.lightbox-b__modal {
+  opacity: 0;
+  animation: ani 0.8s forwards;
+}
+
+@keyframes ani {
+  0% {opacity: 0.2;}
+  100% {opacity: 1;}
+}
+
+@keyframes anim {
+  0% {opacity: 0.2;}
+  100% {opacity: 1;}
+}
+
+.lightbox-b__images-box {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1s;
+  animation-name: fade;
+  animation-duration: 1s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: 0.6} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: 0.6} 
+  to {opacity: 1}
+}
+
+/* TODO - variant-slider-1 */
+@media screen and (min-width: 800px) and (orientation: landscape) {
+  .lightbox-b__images-box  {    
+    max-width: 620px;      
+    margin: auto;    
+  }	
+}
+
+@media screen and (min-width: 800px) and (orientation: portrait) {
+  .lightbox-b__images-box {      
+    max-width: 620px; 
+    margin: auto;  
+  }	
+}
+
+
+/**************/
+
+/* TODO - effect */
+.filter-blur-grayscale {
+	 /*filter: blur(2px);*/
+  filter: grayscale(100%); /* changes color to black and white */	
+}
+
+
