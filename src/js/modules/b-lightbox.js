@@ -2,14 +2,14 @@
 export const lightboxSliderB = () => {
 
 try {
-  const moduleLightboxB = document.getElementById('lightbox-b'); 
+  const moduleLightboxB = document.getElementById('b-lightbox'); 
   //console.log(moduleLightbox);
   if (moduleLightboxB !== null) {
 /////////////////////////////////////
 
 // TODO - swipe animation
 function shiftRight() {
-  const pictures = document.querySelectorAll('.lightbox-b__images-box');
+  const pictures = document.querySelectorAll('.b-lightbox__images-box');
   pictures.forEach(e => {
     e.classList.remove('to-left');
     e.classList.add('to-right');  
@@ -18,7 +18,7 @@ function shiftRight() {
 }
 
 function shiftLeft() {
-  const pictures = document.querySelectorAll('.lightbox-b__images-box');
+  const pictures = document.querySelectorAll('.b-lightbox__images-box');
   pictures.forEach(e => {
     e.classList.remove('to-right');
     e.classList.add('to-left');  
@@ -26,8 +26,8 @@ function shiftLeft() {
   }); 
 }
 
-const btnPrev = document.querySelector('.lightbox-b__prev');
-const btnNext = document.querySelector('.lightbox-b__next');
+const btnPrev = document.querySelector('.b-lightbox__prev');
+const btnNext = document.querySelector('.b-lightbox__next');
 
 btnPrev.addEventListener('click', function() {
   shiftRight();
@@ -40,28 +40,28 @@ btnNext.addEventListener('click', function() {
 
 
 // TODO - lightbox:
-const startLightbox = document.querySelector('.js-lightbox-b-start');
+const startLightbox = document.querySelector('.js-b-lightbox-start');
 startLightbox.addEventListener('click', function() {
   showModal();
   currentSlide(1); 
 });
 
-const modal = document.getElementsByClassName('lightbox-b__modal')[0];
-const close = document.getElementsByClassName('lightbox-b__close')[0];
-const effect = document.getElementsByClassName('js-lightbox-b-effects');
+const modal = document.getElementsByClassName('b-lightbox__modal')[0];
+const close = document.getElementsByClassName('b-lightbox__close')[0];
+const effect = document.getElementsByClassName('js-b-lightbox-effects');
 const pageScroll = document.getElementsByTagName('body')[0]; 
 
 let onEffect = 
     function () {
       for (let i = 0; i < effect.length; i++) {
-       effect[i].classList.add('filter-blur-grayscale');
+       effect[i].classList.add('b-filter');
       }  
     };
     
 let offEffect = 
     function () {
       for (let i = 0; i < effect.length; i++) {
-       effect[i].classList.remove('filter-blur-grayscale');
+       effect[i].classList.remove('b-filter');
       }  
     };
 
@@ -77,16 +77,16 @@ function enablePageScrolling () {
    
 /*
 // TODO - syntax variant
-const controls = document.querySelectorAll('.controls');
+const controls = document.querySelectorAll('.b-controls');
 controls.forEach(v => {
   document.addEventListener('click', (event) => { 
     //console.log(controls); 
-    const click = event.target.classList.contains('click-controls');
+    const click = event.target.classList.contains('switching-b-controls');
     //console.log(click);
     if ( click === true ) {     
       //console.log(controls);
       //console.log(click);
-      v.classList.toggle('show-hide-controls');
+      v.classList.toggle('show-hide-b-controls');
     }   
   });  
 });
@@ -95,16 +95,25 @@ controls.forEach(v => {
 
 // TODO - syntax variant
 document.addEventListener('click', (event) => { 
-const controls = document.querySelectorAll('.controls');
+const controls = document.querySelectorAll('.b-controls');
+const iconFull = document.querySelector('.b-icon-mod'); // full screen mode
 controls.forEach(v => {
   
     //console.log(controls); 
-    const click = event.target.classList.contains('click-controls');
+    const click = event.target.classList.contains('switching-b-controls');
     //console.log(click);
-    if ( click === true ) {     
+    
+    const tag = event.target.tagName.toLowerCase();
+    //console.log(tag);
+    
+    const whatClass = event.target.className;
+    //console.log(whatClass);
+    
+    if ( click === true || whatClass === '' ) {     
       //console.log(controls);
       //console.log(click);
-      v.classList.toggle('show-hide-controls');
+      v.classList.toggle('show-hide-b-controls');
+      iconFull.classList.toggle('fa-expand-alt'); // full screen mode
     }   
   });  
 });
@@ -112,13 +121,16 @@ controls.forEach(v => {
 
 //                     
 function showModal() {
-  const controls = document.querySelectorAll('.controls');
+  const controls = document.querySelectorAll('.b-controls');
+  const iconFull = document.querySelector('.b-icon-mod'); // full screen mode
   controls.forEach(v => {
     setTimeout( function() {
-      v.classList.add('show-hide-controls');
+      v.classList.add('show-hide-b-controls');
+      iconFull.classList.add('fa-expand-alt'); // full screen mode
     }, 800);
     setTimeout( function() {
-      v.classList.remove('show-hide-controls');
+      v.classList.remove('show-hide-b-controls');
+      iconFull.classList.remove('fa-expand-alt'); // full screen mode
     }, 4500);   
   });
   
@@ -138,9 +150,36 @@ function hideModal() {
 }
 //
 
+//TODO - full screen mode
+const iconFull = document.querySelector('.b-icon-mod'); 
+//console.log(full);
+iconFull.addEventListener('click', () => {
+
+  hideElements(); // options
+
+  iconFull.classList.toggle('fa-expand-alt'); 
+  iconFull.classList.toggle('fa-compress-alt');
+  const fullModal = document.querySelector('.b-lightbox__modal');
+  fullModal.classList.toggle('b-full-modal');
+  const fullImg = document.querySelectorAll('.b-lightbox__images-box');
+  fullImg.forEach(f => {
+    //console.log(fullImg);
+    f.classList.toggle('b-full-img');    
+  });
+});
+
+// options
+function hideElements() {
+const hide = document.querySelectorAll('.b-hide'); 
+  hide.forEach(h => {
+    h.classList.toggle('b-element-hide');
+  });
+}
+//
+
 // TODO - lightbox
-const btn1 = document.querySelector('.lightbox-b__prev');
-const btn2 = document.querySelector('.lightbox-b__next');
+const btn1 = document.querySelector('.b-lightbox__prev');
+const btn2 = document.querySelector('.b-lightbox__next');
 
 /* // TODO - syntax variant:
 btn1.addEventListener('click', () => plusSlides(-1) );
@@ -177,8 +216,8 @@ function currentSlide(num) {
 }
 
 function viewSlides(num) {
-  const img = document.getElementsByClassName('lightbox-b__images-box');
-  const dots = document.getElementsByClassName("lightbox-b__dot");
+  const img = document.getElementsByClassName('b-lightbox__images-box');
+  const dots = document.getElementsByClassName('b-lightbox__dot');
   let i;
  
   if (num > img.length) {

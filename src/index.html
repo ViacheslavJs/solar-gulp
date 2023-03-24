@@ -14,7 +14,7 @@
         <div class="page-home">
           
           <!-- TODO - module our-services -->
-          <section class="our-services js-lightbox-b-effects">
+          <section class="our-services js-b-lightbox-effects js-a-lightbox-effects">
             <div class="container">
               <div class="our-services__content">
               
@@ -26,12 +26,21 @@
                   <!-- row1 -->                
                   <div class="services-items__services-card services-card">                                      
                     <!--<a class="services-card__link" href="">-->
-                      <img class="services-card__link-content services-card__link-content--image js-lightbox-b-start" 
+                      <img class="services-card__link-content services-card__link-content--image js-b-lightbox-start" 
                            src="img/worker.jpg" 
                            alt="solar panel specialist">  
                     <!--</a>-->                                                                                             
                     <h3 class="services-card__services-card-title">Highly qualified specialists</h3>                     
                   </div> 
+                  
+                  <div class="services-items__services-card services-card">                                           
+                    <!--<a class="services-card__link" href="">-->
+                      <img class="services-card__link-content services-card__link-content--image js-a-lightbox-start" 
+                           src="img/lamp.jpg" 
+                           alt="solar panels">  
+                    <!--</a>-->                                                                                         
+                    <h3 class="services-card__services-card-title">Lightbox</h3>                                
+                  </div>
           
                   <div class="services-items__services-card services-card">                                 
                     <a class="services-card__link" href="">
@@ -339,7 +348,9 @@
           </section>
           <!-- module bg-layer -->
                                                            
-          @@include('html/components/lightbox-b.html', {}) 
+          @@include('html/components/b-lightbox.html', {}) 
+          
+          @@include('html/components/a-lightbox.html', {}) 
                                            
           @@include('html/section/contacts.html', {}) 
                                                                                                         

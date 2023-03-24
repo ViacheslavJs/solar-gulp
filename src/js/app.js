@@ -9,8 +9,11 @@ scrolling();
 import { iconsControl } from "./modules/icons-control.js";
 iconsControl();
 
-import { lightboxSliderB } from "./modules/lightbox-b.js";
+import { lightboxSliderB } from "./modules/b-lightbox.js";
 lightboxSliderB();
+
+import { lightboxSliderA } from "./modules/a-lightbox.js";
+lightboxSliderA();
 
 /////////////////////////////////////////////
 
