@@ -5,7 +5,10 @@ try {
   const moduleLightboxA = document.getElementById('a-lightbox'); 
   //console.log(moduleLightboxA);
   if (moduleLightboxA !== null) {
+  
 /////////////////////////////////////
+
+(function() {
 
 // TODO - swipe animation
 function shiftRight() {
@@ -364,6 +367,9 @@ const around =
 */
 
 ////////////////////////////////////////////////
+
+})(); // immediately invoked functions
+
 } // if (moduleLightboxA !== null)
 
 } // try

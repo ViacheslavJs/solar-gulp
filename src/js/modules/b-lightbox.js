@@ -5,7 +5,10 @@ try {
   const moduleLightboxB = document.getElementById('b-lightbox'); 
   //console.log(moduleLightbox);
   if (moduleLightboxB !== null) {
+  
 /////////////////////////////////////
+
+(function() {
 
 // TODO - swipe animation
 function shiftRight() {
@@ -242,6 +245,9 @@ function viewSlides(num) {
 }
 
 ////////////////////////////////////////////////
+
+})(); // immediately invoked functions
+
 } // if (moduleLightboxB !== null)
 
 } // try
