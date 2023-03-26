@@ -155,7 +155,7 @@ function hideModal() {
 
 //TODO - full screen mode
 const iconFull = document.querySelector('.b-icon-mod'); 
-//console.log(full);
+//console.log(iconFull);
 iconFull.addEventListener('click', () => {
 
   hideElements(); // options
