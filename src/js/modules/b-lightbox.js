@@ -84,12 +84,12 @@ const controls = document.querySelectorAll('.b-controls');
 controls.forEach(v => {
   document.addEventListener('click', (event) => { 
     //console.log(controls); 
-    const click = event.target.classList.contains('switching-b-controls');
+    const click = event.target.classList.contains('b-switching');
     //console.log(click);
     if ( click === true ) {     
       //console.log(controls);
       //console.log(click);
-      v.classList.toggle('show-hide-b-controls');
+      v.classList.toggle('b-show');
     }   
   });  
 });
@@ -103,7 +103,7 @@ const iconFull = document.querySelector('.b-icon-mod'); // full screen mode
 controls.forEach(v => {
   
     //console.log(controls); 
-    const click = event.target.classList.contains('switching-b-controls');
+    const click = event.target.classList.contains('b-switching');
     //console.log(click);
     
     const tag = event.target.tagName.toLowerCase();
@@ -115,7 +115,7 @@ controls.forEach(v => {
     if ( click === true || whatClass === '' ) {     
       //console.log(controls);
       //console.log(click);
-      v.classList.toggle('show-hide-b-controls');
+      v.classList.toggle('b-show');
       iconFull.classList.toggle('fa-expand-alt'); // full screen mode
     }   
   });  
@@ -128,11 +128,11 @@ function showModal() {
   const iconFull = document.querySelector('.b-icon-mod'); // full screen mode
   controls.forEach(v => {
     setTimeout( function() {
-      v.classList.add('show-hide-b-controls');
+      v.classList.add('b-show');
       iconFull.classList.add('fa-expand-alt'); // full screen mode
     }, 800);
     setTimeout( function() {
-      v.classList.remove('show-hide-b-controls');
+      v.classList.remove('b-show');
       iconFull.classList.remove('fa-expand-alt'); // full screen mode
     }, 4500);   
   });
@@ -236,11 +236,11 @@ function viewSlides(num) {
   }
   
   for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" dot-active", "");
+      dots[i].className = dots[i].className.replace(" b-dot-active", "");
   }
     
   img[imagesIndex-1].style.display = "block";
-  dots[imagesIndex-1].className += " dot-active";  
+  dots[imagesIndex-1].className += " b-dot-active";  
   
 }
 

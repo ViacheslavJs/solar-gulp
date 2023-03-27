@@ -85,26 +85,7 @@ const controls = document.querySelectorAll('.a-controls');
 controls.forEach(v => {
   document.addEventListener('click', (event) => { 
     //console.log(controls); 
-    const click = event.target.className;
-    //console.log(click);
-    if ( click === 'slider-images-box fade' 
-      || click === 'slider-images' ) {     
-      //console.log(controls);
-      console.log(click);
-      v.classList.toggle('show-hide-a-controls');
-    }   
-  });  
-});
-//
-*/ 
-
-// TODO - syntax variant
-document.addEventListener('click', (event) => { 
-const controls = document.querySelectorAll('.a-controls');
-controls.forEach(v => {
-  
-    //console.log(controls); 
-    const click = event.target.classList.contains('switching-a-controls');
+    const click = event.target.classList.contains('a-switching');
     //console.log(click);
     
     const tag = event.target.tagName.toLowerCase();
@@ -116,20 +97,47 @@ controls.forEach(v => {
     if ( click === true || whatClass === '' ) {     
       //console.log(controls);
       //console.log(click);
-      v.classList.toggle('show-hide-a-controls');
+      v.classList.toggle('a-show');
+    }  
+  });  
+});
+//
+*/
+
+
+// TODO - syntax variant
+document.addEventListener('click', (event) => { 
+const controls = document.querySelectorAll('.a-controls');
+controls.forEach(v => {
+  
+    //console.log(controls); 
+    const click = event.target.classList.contains('a-switching');
+    //console.log(click);
+    
+    const tag = event.target.tagName.toLowerCase();
+    //console.log(tag);
+    
+    const whatClass = event.target.className;
+    //console.log(whatClass);
+    
+    if ( click === true || whatClass === '' ) {     
+      //console.log(controls);
+      //console.log(click);
+      v.classList.toggle('a-show');
     }   
   });  
 });
 //
+
                      
 function showModal() {
   const controls = document.querySelectorAll('.a-controls');
   controls.forEach(v => {
     setTimeout( function() {
-      v.classList.add('show-hide-a-controls');
+      v.classList.add('a-show');
     }, 800);
     setTimeout( function() {
-      v.classList.remove('show-hide-a-controls');
+      v.classList.remove('a-show');
     }, 4500);   
   });
   
@@ -233,11 +241,11 @@ function viewSlides(num) {
   }
   
   for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" dot-active", "");
+      dots[i].className = dots[i].className.replace(" a-dot-active", "");
   }
     
   img[imagesIndex-1].style.display = "block";
-  dots[imagesIndex-1].className += " dot-active";  
+  dots[imagesIndex-1].className += " a-dot-active";  
   
 }
 
