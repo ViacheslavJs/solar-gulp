@@ -223,23 +223,14 @@
 }
 
 /* TODO - variant-slider-1 */
-@media screen and (min-width: 800px) and (orientation: landscape) {
+@media screen and (min-width: 800px) {
   .b-lightbox__images-box  {    
     max-width: 620px;      
     margin: auto;    
   }	
 }
 
-@media screen and (min-width: 800px) and (orientation: portrait) {
-  .b-lightbox__images-box {      
-    max-width: 620px; 
-    margin: auto;  
-  }	
-}
-
-
 /* js - utility classes */
-
 .b-controls {
   display: none;
   opacity: 0;
@@ -258,7 +249,11 @@
 
 .b-full-img {
   max-width: 100%; 
-  height: 100%; 
+  height: 100%;
+  margin: auto;
+  @media screen and (min-width: $tablet-small_starting-point) {
+    max-width: $tablet-small_starting-point;
+  } 
 }
 
 .b-full-modal {
