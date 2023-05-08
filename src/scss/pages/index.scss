@@ -1,0 +1,586 @@
+/* variable modules */
+
+$color_base: #ffffff;
+$text_color: #404040;
+$page-color-style: #b4d249;
+$image-shift_px: 25px;
+
+/* module our-services */
+$services-card_bg: #ffffff;
+$services-title_color: #646464;
+$services-card-title_color: #646464;
+
+/* module flex-sides-rev */
+$energy_bg: darken(#f6f6f8, 1%);
+$energy-info_bg: #ffffff;
+$energy-title_color: darken(#646464, 7%);
+$energy-text_color: darken(#646464, 5%);
+$energy-button_color: darken($page-color-style, 10%);
+
+/* module bg-layer */
+$bg-layer-text_color: $color_base;
+$bg-layer_bg-attachment: fixed; /* scroll/fixed */
+$bg-layer_top: 50px; 
+$bg-layer-brand_display: none; /* block/none */
+
+/* module grid-tiles */
+$tile_border: none; /* none/1px solid #ffffff */
+$tile_bg: transparent; /* rgba(0, 0, 0, 0.3)/transparent */
+$tile-link_display: none; /* flex/none */
+$tile-icon_color: #f6f6f6;
+$tile-icon_background: $page-color-style;
+$tile-title_color: $color_base;
+$tile-text_color: darken($color_base, 0%);
+$tile_bg-attachment: fixed; /* scroll/fixed */
+
+
+
+
+/* module flex-sides */
+$sides-title_color: #646464;
+$sides-button_color: #fab145;
+
+/* module product */
+$product-title_color: #646464;
+$product-text_color: darken($color_base, 30%);
+$product_bg-attachment: fixed; /* scroll/fixed */
+
+
+/* module flex-column */
+$column-brand_display: none;  /* block/none */
+$column-title_color: #646464;
+$column-text_display: none;   /* block/none */
+$column-button_color: #fab145;
+
+.page-home {
+  font-family: sans-serif;         
+}
+
+/***** TODO - module our-services *********************/
+.our-services {    
+  &__title {      
+    margin: 50px auto;
+    padding: 5px 0;            
+    font-family: serif;
+    font-size: calc(35px + (40 + 40 * 0.7) * (100vw - 320px) / 950);
+    font-weight: 400;
+    text-align: left; 
+    word-wrap: break-word;      
+    color: $services-title_color;
+    @media screen and (min-width: 645px) {
+      /*max-width: 70%;*/
+      font-size: 3.8rem;
+    }
+  }
+  
+  &__image {
+    display: block;
+    max-width: calc(100%);
+    margin: 0;
+    @media screen and (min-width: 485px) {
+      max-width: calc(100% - $image-shift_px);
+    }    
+  }
+  
+}
+
+.services-items {
+  max-width: calc(100%);   
+  margin-top: -75px;
+  margin-bottom: 50px;
+  padding: 0;
+ 
+/***** grid/flex *****/
+  display: grid;
+  grid-gap: 20px; 
+  grid-template-columns: repeat(1, 1fr); 
+  grid-auto-rows: minmax(100px, auto);
+  @media screen and (min-width: 485px) {       
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0;      
+  }  
+  @media screen and (min-width: 750px) {      
+    grid-template-columns: repeat(3, 1fr);      
+  }
+  @media screen and (min-width: 950px) {      
+    grid-template-columns: repeat(4, 1fr);      
+  }
+            
+}
+
+.services-card {    
+  display: flex;               
+  flex-direction: column;
+  justify-content: center;  
+  align-items: center; 
+  margin-top: 5px;
+  margin-right: $image-shift_px;
+  margin-bottom: 0;
+  margin-left: $image-shift_px;
+  padding: 25px;   
+  &.services-card {
+    background: $services-card_bg; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* TODO - shadow */
+    @media screen and (min-width: 485px) { 
+      margin-top: $image-shift_px;
+      margin-right: 0;
+      margin-bottom: 0;
+      margin-left: $image-shift_px;
+    }
+  }  
+
+  &__link {                    
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center;
+    align-items: center;
+    width: 95px;  
+    height: 95px;  
+    font-size: 16px;      
+    border-radius: 50%; 
+    background: $page-color-style;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    /* TODO - https://www.cssmatic.com/box-shadow - Box Shadow CSS Generator */
+    -webkit-box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.4);
+    box-shadow: 0px 3px 8px -1px rgba(0,0,0,0.4);   
+    &:hover {
+      opacity: 0.6; 
+      cursor: pointer;
+    }   
+  }
+  
+  &__link-content--image { 
+    display: block;
+    width: 95px;
+    height: 95px;                           
+    border-radius: 50%; 
+    background: $page-color-style; 
+    object-fit: cover;
+    cursor: pointer;      
+    
+  }
+  
+  &__link-content--icon { 
+    display: block; 
+    width: 68%;
+    height: 68%;
+    margin: auto;
+    border-radius: 5px;                        
+    background: $page-color-style;     
+    object-fit: cover;          
+  }
+  
+  &__services-card-title {          
+    padding: 0.3rem 0;
+    font-size: 19.2px;
+    font-style: normal;
+    font-weight: 400; 
+    text-align: center; 
+    /*text-transform: uppercase;*/
+    /*word-break: break-all;*/ /* разрывать слова при переносе */                           
+    color: $services-card-title_color;   
+  }
+        
+}
+
+.container {
+  
+}
+
+/***** module our-services *********************/
+
+/***** TODO - module energy *********************/
+.energy {  
+  background: $energy_bg;   
+
+  &__content {
+    display: flex;  
+    flex-direction: column;    
+    justify-content: center;          
+    align-items: flex-end;                   
+    max-width: 100%;                               
+    margin: 0 auto;
+    padding: 0;   
+    @media screen and (min-width: $tablet-small_starting-point) {        
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+  }
+  
+  
+  
+  &__info {            
+    flex-grow: 1;
+    flex-shrink: 1;     
+    flex-basis: 0%;
+                                            
+    position: relative;      
+    align-self: flex-start;     
+    max-width: 100%;                               
+    margin-bottom: 50px;      
+    font-size: 16px;      
+    padding: 20px 0;
+    background: $energy-info_bg;
+    @media screen and (min-width: 580px) {         
+      max-width: 60%; 
+      margin-top: -300px;     
+    }
+    @media screen and (min-width: $tablet-small_starting-point) {  
+      max-width: 100%;         
+      margin-top: 150px;  
+      margin-bottom: 50px; 
+      align-self: flex-end;   
+    }
+    
+  }
+  
+  &__title {  
+    margin: 15px 0 0 0;         
+    padding: 5px 0;
+    font-family: serif;
+    font-size: 1.4em;        
+    font-weight: 400;  
+    text-align: center;
+    text-transform: uppercase;            
+    letter-spacing: 8px;
+    color: $energy-title_color;
+    @media screen and (min-width: 768px) {              
+      text-align: left;
+    }    
+    @media screen and (min-width: 645px) {
+      font-size: 1.8em;
+    }  
+  }
+    
+  &__text {    
+    max-width: 100%;               
+    margin: 15px 0 20px 0; 
+    padding: 5px 0; 
+    font-size: 1.2rem; 
+    letter-spacing: 0px;    
+    line-height: 2;        
+    text-align: center;
+    color: $energy-text_color;  
+    @media screen and (min-width: 768px) {               
+      text-align: left;
+    }       
+  }
+  
+    
+}
+
+.decoration-bg {
+  flex-grow: 1;
+  flex-shrink: 1;     
+  flex-basis: 0%; 
+  /*align-self: flex-start; /* TODO */  
+  
+  position: relative;
+  right: 0;  
+  max-width: calc(100% - $image-shift_px);  
+  margin: 50px 0 calc($image-shift_px * 2) 0;  
+  background: $page-color-style;
+  @media screen and (min-width: 580px) {        
+    max-width: 60%;  
+    margin: 50px 0 50px 0; 
+  }
+    
+  &__images-box {      
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0%;
+    
+    position: relative;
+    max-width: calc(100%);
+    margin-top: $image-shift_px; 
+    margin-right: 0;
+    margin-bottom: -$image-shift_px;
+    margin-left: -$image-shift_px;    
+    padding: 0;  
+    @media screen and (min-width: 580px) {   
+      max-width: 100%;             
+      right: $image-shift_px;  
+      
+      /*top: $image-shift_px;
+      margin: 0; /* TODO - or */
+      
+      /*bottom: $image-shift_px;
+      margin: 0; /* TODO - or */ 
+            
+      margin-top: $image-shift_px; 
+      margin-right: auto;
+      margin-bottom: $image-shift_px;
+      margin-left: auto; /* TODO - or */     
+    }
+  }
+  
+  &__image {                  
+    display: block;       
+    max-width: 100%; 
+    margin: 0 auto;
+    object-fit: cover;     
+  }
+  
+}
+
+.energy-links {               
+  display: flex;
+  flex-direction: row;
+  justify-content: center;     
+  align-items: center;
+  margin: 0;
+  padding: 0; 
+  font-size: 16px;
+  @media screen and (min-width: 768px) {
+    justify-content: flex-start; 
+  }
+      
+  &__button {
+    display: block; 
+    padding: 10px 30px;
+    border: 2px solid $energy-button_color;
+    border-radius: 50px;
+    background: $energy-info_bg;    
+    text-decoration: none;
+    &:hover {
+      opacity: 0.7; 
+      cursor: pointer;
+    }
+  }
+
+  &__button-text{
+    display: block;
+    font-size: 1em;
+    font-weight: 400;
+    text-align: center;  
+    white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 1px; 
+    color: $energy-button_color;
+  }
+    
+}
+
+/********** module energy ***********/
+
+/***** TODO - module bg-layer *********************/
+.bg-layer {
+  position: relative; /* TODO -for &::after */
+  max-width: calc(100%);    
+  padding-top: $bg-layer_top;
+  padding-bottom: 10px;
+   
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.7), rgba(0,0,0,0.5)), url('../img/residential-bg.jpg');
+  /*background-image: url('../img/bg.jpg');*/
+  display: block;
+  max-width: 100%;
+  min-height: 60vh;  	 
+  background-size: cover;
+  background-position: 50% 55%;  
+  background-repeat: no-repeat;
+  background-attachment: $bg-layer_bg-attachment;
+  /*background: url('../img/bg.jpg') 50% 55% / cover no-repeat fixed;*/ 
+  
+  &::after { 
+    display: none; /* TODO */
+    content: "";
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    background: rgba(51, 51, 51, 0.5);
+    /*background: rgba(256, 256, 256, 0.2);*/  
+  }
+    
+  &__content {    
+    position: relative;
+    z-index: 40;    
+  }   
+  
+  &__title {      
+    margin: 0 auto;
+    padding: 5px 0;            
+    font-family: serif;
+    font-size: calc(35px + (40 + 40 * 0.7) * (100vw - 320px) / 1920);
+    font-weight: 400;
+    text-align: center;       
+    color: $bg-layer-text_color;
+    @media screen and (min-width: 645px) {
+      max-width: 70%;
+      font-size: 3.2rem;
+    }    
+  }
+  
+  &__text {                  
+    margin: 0 auto;     
+    padding: 5px 0; 
+    font-size: 1.1rem; 
+    letter-spacing: 0px;    
+    line-height: 2;        
+    text-align: center;
+    color: $bg-layer-text_color;  
+    @media screen and (min-width: 768px) {
+      max-width: 80%;          
+    }         
+  }
+  
+}
+
+/***** module bg-layer *********************/
+
+/***** TODO - module grid-tiles *********************/
+.grid-tiles {
+  max-width: calc(100%); 
+  /*margin-bottom: 10px;*/
+  padding: 50px 0;    
+ 
+}
+
+/***** grid/flex *****/
+.grid-tiles__tiles-box {
+  display: grid;
+  grid-gap: 20px;  
+  grid-template-columns: repeat(1, 1fr); 
+  grid-auto-rows: minmax(100px, auto);
+  @media screen and (min-width: 650px) {       
+    grid-template-columns: repeat(2, 1fr);      
+  }  
+  @media screen and (min-width: 950px) {      
+    grid-template-columns: repeat(3, 1fr);      
+  }
+            
+}
+  
+.tiles-box__tile {    
+  &.tile {
+    border-radius: 20px;
+    background: $tile_bg;
+    box-shadow: 0; /* 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* TODO - shadow */
+    @media screen and (min-width: 991px) {
+      /*width: 215px;*/   
+    }
+  }
+    
+}
+
+.tile { 
+  border: $tile_border;
+  padding: 10px 0;   
+  
+  &__link {   
+    display: $tile-link_display; /* flex/none */        
+    flex-direction: row;
+    justify-content: center;  
+    align-items: center;    
+    width: 80px;
+    height: 80px;  
+    margin: 10px 0;  
+    font-size: 16px;      
+    border-radius: 50%; 
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);        
+    &:hover {
+      opacity: 0.6; 
+      cursor: pointer;
+    }   
+  }
+  
+  &__link-icon { 
+    display: block;
+    width: 100%;
+    height: 100%;           
+    font-size: 2.7em;               
+    color: $tile-icon_color;  
+    border-radius: 50%; 
+    background: $tile-icon_background; 
+  
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+    align-items: center;
+    
+    /* TODO - https://www.cssmatic.com/box-shadow - Box Shadow CSS Generator */
+    /*-webkit-box-shadow: 0px 16px 19px -10px rgba(204,204,204,1);
+    -moz-box-shadow: 0px 16px 19px -10px rgba(204,204,204,1);
+    box-shadow: 0px 16px 19px -10px rgba(204,204,204,1); */  
+    -webkit-box-shadow: 0px 6px 10px 1px rgba(112,112,112,0.19);
+    -moz-box-shadow: 0px 6px 10px 1px rgba(112,112,112,0.19);
+    box-shadow: 0px 6px 10px 1px rgba(112,112,112,0.19);  
+  }
+  
+  &__tile-title {
+    height: calc(1.3em * 2.4);
+    margin: 0.5em 0;             
+    padding: 0.5em 0;
+    font-size: 1.3rem;
+    font-weight: 400; 
+    text-align: left; 
+    /*text-transform: uppercase;*/ 
+    /*word-break: break-all;*/                            
+    color: $tile-title_color;   
+  }
+  
+  &__tile-text {
+    margin: 5px 0;         
+    padding: 5px 0;
+    font-size: 1rem;
+    line-height: 1.4;
+    text-align: left;
+    color: $tile-text_color;     
+  }  
+  
+}
+
+/***** module grid-tiles *********************/
+
+
+/***** TODO - module description *******/
+.description {     
+  max-width: 100%;                               
+  margin: 0 auto;
+  padding: 0; 
+  
+  &__list {                   
+    max-width: 100%;     
+    margin: 0;   
+    padding: 0;  
+  }
+  
+  &__list-item { 
+    position: relative;
+    max-width: 100%; 
+    height: auto;
+    margin: 0 0.32em;
+    padding: 0.32em 0 0.32em 0.5em;
+    
+    text-align: left;   
+    color: $color_base;                      
+    letter-spacing: 0;    
+    line-height: 1.4;
+    font-size: 1rem;
+    
+    &::after {
+      display: block;
+	  content: '';
+	  position: absolute;
+	  top: 0.7em;
+	  left: -1em;
+	  width: 1em;
+	  height: 0.5em;
+	  border-left: 0.187em solid $color_base;
+	  border-bottom: 0.187em solid $color_base;
+	  -webkit-transform: rotate(-45deg);
+	  transform: rotate(-45deg);
+    }                                    
+  }
+  
+  &__list-text { 
+    
+  }
+   
+}
+
+/********** module description ***********/
+
